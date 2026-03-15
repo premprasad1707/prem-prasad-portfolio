@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/assets/fonts/Satoshi-Variable.woff2') format('woff2');
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/assets/fonts/JetBrainsMono-Variable.woff2') format('woff2');
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Navy blue dark theme */
+    --background: 0.13 0.055 240;
+    --foreground: 0.93 0.012 240;
+    --card: 0.17 0.055 238;
+    --card-foreground: 0.93 0.012 240;
+    --popover: 0.17 0.055 238;
+    --popover-foreground: 0.93 0.012 240;
+    --primary: 0.70 0.22 290;
+    --primary-foreground: 0.10 0.02 240;
+    --secondary: 0.22 0.06 238;
+    --secondary-foreground: 0.82 0.015 240;
+    --muted: 0.20 0.05 238;
+    --muted-foreground: 0.58 0.025 240;
+    --accent: 0.68 0.20 300;
+    --accent-foreground: 0.10 0.02 240;
+    --destructive: 0.62 0.21 25;
+    --destructive-foreground: 0.96 0.005 0;
+    --border: 0.26 0.055 238;
+    --input: 0.24 0.055 238;
+    --ring: 0.70 0.22 290;
+    --radius: 0.5rem;
+    --chart-1: 0.70 0.22 290;
+    --chart-2: 0.65 0.20 310;
+    --chart-3: 0.72 0.18 255;
+    --chart-4: 0.68 0.19 330;
+    --chart-5: 0.60 0.16 220;
+    --sidebar: 0.15 0.055 238;
+    --sidebar-foreground: 0.90 0.012 240;
+    --sidebar-primary: 0.70 0.22 290;
+    --sidebar-primary-foreground: 0.10 0.02 240;
+    --sidebar-accent: 0.22 0.06 238;
+    --sidebar-accent-foreground: 0.82 0.015 240;
+    --sidebar-border: 0.26 0.055 238;
+    --sidebar-ring: 0.70 0.22 290;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Satoshi', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: oklch(0.13 0.055 240);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+  }
+
+  code, .mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, oklch(0.72 0.22 285), oklch(0.68 0.25 310), oklch(0.78 0.18 330));
+  }
+
+  .glow-violet {
+    box-shadow: 0 0 40px oklch(0.70 0.22 290 / 0.25), 0 0 80px oklch(0.68 0.20 300 / 0.10);
+  }
+
+  .glow-teal {
+    box-shadow: 0 0 40px oklch(0.70 0.22 290 / 0.25), 0 0 80px oklch(0.68 0.20 300 / 0.10);
+  }
+
+  .card-hover {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px oklch(0.70 0.22 290 / 0.18), 0 4px 20px rgba(0,0,0,0.3);
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .resume-section-heading {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    @apply text-primary/70;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid oklch(0.70 0.22 290 / 0.2);
+  }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .dot-grid {
+    background-image: radial-gradient(oklch(0.28 0.06 240) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
