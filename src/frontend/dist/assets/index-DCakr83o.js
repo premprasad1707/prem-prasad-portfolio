@@ -20790,7 +20790,7 @@ function Hero({ onOpenResume }) {
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "img",
                 {
-                  src: "/assets/uploads/Gemini_Generated_Image_fzr7jmfzr7jmfzr7-1-1.png",
+                  src: "dp.jpeg",
                   alt: "Prem Prasad Swain",
                   className: "relative w-56 h-56 md:w-72 md:h-72 rounded-full object-cover object-top border-2 border-primary/40 shadow-2xl animate-float"
                 }
